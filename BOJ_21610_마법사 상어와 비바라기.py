@@ -59,24 +59,25 @@ for i in range(m):
     r,c = map(int,input().split())
     c = c%n
     위치 = deque()
+    # 이동
     for j in range(len(초기위치)):
         a = 초기위치[j][0] + dr[r-1]*c
         b = 초기위치[j][1] + dc[r-1]*c
 
         if a<0 or n<=a:
             if a<0:
-                a = n+a
+                a += n
             elif n<=a:
-                a = a-n
+                a -= n
         if b < 0 or n <= b:
             if b < 0:
-                b = n + b
+                b += n
             elif n <= b:
-                b = b - n
+                b -= n
         위치.append([a,b])
         # 1씩 증가
         board[a][b] +=1
-        #여기까지는 OK
+    # 물 복사 버그
     for k in range(len(위치)):
         for j in range(1,8,2):
             nr = 위치[k][0] + dr[j]

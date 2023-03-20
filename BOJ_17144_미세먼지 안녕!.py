@@ -22,6 +22,11 @@ r, c, t = map(int, input().split())
 
 board = [list(map(int, input().split())) for _ in range(r)]
 
+공청기 = []
+for i in range(r):
+    if board[i][0] == -1:
+        공청기.append(i)
+
 for tc in range(t):
     for i in range(r):
         for j in range(c):
@@ -34,6 +39,41 @@ for tc in range(t):
                         board[nr][nc] += board[i][j]//5
                         cnt += 1
                 board[i][j] = board[i][j]-(board[i][j]//5)*(cnt)
-    for i in range(r//2):
-        for j in range(c):
-            pass
+    print(공청기)
+    # 공청기 위에
+    r,c = 공청기[0],1
+    d = 0
+    dr = [0,-1,0,1]
+    dc = [1,0,-1,0]
+    before = 0
+    while True:
+        nr = r + dr[d]
+        nc = c + dr[d]
+        if r == 공청기[0] and c == 1:
+            break
+        if nr <0 or nr>=r or nc <0 or nc>=c:
+            d += 1
+            continue
+        board[r][c], before = before,board[r][c]
+        r = nr
+        c = nc
+
+    # 공청기 아래
+    r, c = 공청기[1], 1
+    d = 0
+    dr = [0, 1, 0, -1]
+    dc = [1, 0, -1, 0]
+    before = 0
+    while True:
+        nr = r + dr[d]
+        nc = c + dr[d]
+        if r == 공청기[0] and c == 1:
+            break
+        if nr < 0 or nr >= r or nc < 0 or nc >= c:
+            d += 1
+            continue
+        board[r][c], before = before, board[r][c]
+        r = nr
+        c = nc
+
+    print(board)
