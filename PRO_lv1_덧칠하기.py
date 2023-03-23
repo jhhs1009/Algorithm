@@ -14,3 +14,18 @@
 롤러의 좌우측 끝을 구역의 경계선 혹은 벽의 좌우측 끝부분에 맞춘 후 롤러를 위아래로 움직이면서 벽을 칠함
 
 '''
+n = 8
+m = 4
+section = [2,3,6]
+
+# 60퍼센트네~
+def solution(n, m, section):
+    answer = 0
+    if m != 1:
+        l = section[-1]-section[0]
+        answer += l // m + 1
+
+    else:
+        answer += len(section)
+
+    return answer
