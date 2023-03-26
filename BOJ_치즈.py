@@ -37,3 +37,6 @@ while True:
         print(time, deleteCnt, sep='\n') 
         break
     time += 1
+    
+    
+    
