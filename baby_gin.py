@@ -1,13 +1,9 @@
 num = int(input())
 c = [0] * 12 # 대충 가장 큰 숫자보다 1개 더 크게 만들면 됨 근데 커봤자 9니까 12개쯤
 
-for i in range(6):
+for i in range(len(str(num))):
     c[num%10] += 1 # c의 인덱스 번호에 1더하기
     num //= 10
-'''
-print(c)
-[0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0]
-'''
 
 i = 0
 tri = run = 0
