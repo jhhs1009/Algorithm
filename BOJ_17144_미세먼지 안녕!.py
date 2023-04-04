@@ -53,6 +53,8 @@ for tc in range(t):
             break
         if nr <0 or nr>=r or nc <0 or nc>=c:
             d += 1
+            if d>=4:
+                d = 0
             continue
         board[r][c], before = before,board[r][c]
         r = nr
@@ -71,6 +73,8 @@ for tc in range(t):
             break
         if nr < 0 or nr >= r or nc < 0 or nc >= c:
             d += 1
+            if d>=4:
+                d = 0
             continue
         board[r][c], before = before, board[r][c]
         r = nr
