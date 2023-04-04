@@ -25,7 +25,7 @@ def b(r, c, d):
             cnt += 1
 
         for i in range(1, 5):
-            nr, nc = r + dr[(d - i + 4) % 4], c + dc[(d - i + 4) % 4]
+            nr, nc = r + dr[(d - i )], c + dc[(d - i ) ]
             # 청소되지 않은 빈칸이 있는 경우
             if board[nr][nc] == 0:
                 flag += 1
