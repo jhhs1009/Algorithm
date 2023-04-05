@@ -107,7 +107,6 @@ def main(board_cus):
         # 상어가 갈 수 있는 경우의 수 -> dfs
         nr = 상r + dr[dir - 1]*cnt
         nc = 상c + dc[dir - 1]*cnt
-        print(nr, nc)
         if nr<0 or 4<=nr or nc<0 or 4<=nc:
             if m<res:
                 m = res
@@ -124,9 +123,6 @@ def main(board_cus):
             cnt += 1
             main(board_cus)
 
-            print("============= 복귀 =============")
-            for i in range(4):
-                print(f"물고기 이동 결과값: {board_cus[i]}")
             board_cus = tmp_board
 
 
