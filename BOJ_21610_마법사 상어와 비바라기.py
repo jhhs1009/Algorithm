@@ -88,10 +88,9 @@ for i in range(m):
     바꿀위치=[]
     for k in range(n):
         for j in range(n):
-            if board[k][j] >=2:
-                if [k,j] not in 위치:
-                    바꿀위치.append([k,j])
-                    board[k][j] -=2
+            if board[k][j] >=2 and [k,j] not in 위치:
+                바꿀위치.append([k,j])
+                board[k][j] -=2
     초기위치 = 바꿀위치
 
 board = sum(board, [])
