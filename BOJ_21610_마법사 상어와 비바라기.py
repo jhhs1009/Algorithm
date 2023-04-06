@@ -59,6 +59,7 @@ for i in range(m):
     r,c = map(int,input().split())
     c = c%n
     위치 = deque()
+    vis = [[0]*n for _ in range(n)]
     # 이동
     for j in range(len(초기위치)):
         a = 초기위치[j][0] + dr[r-1]*c
@@ -75,6 +76,7 @@ for i in range(m):
             elif n <= b:
                 b -= n
         위치.append([a,b])
+        vis[a][b] = 1
         # 1씩 증가
         board[a][b] +=1
     # 물 복사 버그
@@ -88,7 +90,7 @@ for i in range(m):
     바꿀위치=[]
     for k in range(n):
         for j in range(n):
-            if board[k][j] >=2 and [k,j] not in 위치:
+            if board[k][j] >=2 and vis[k][j] == 0:
                 바꿀위치.append([k,j])
                 board[k][j] -=2
     초기위치 = 바꿀위치

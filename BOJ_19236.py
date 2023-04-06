@@ -26,7 +26,7 @@ from copy import deepcopy
 dr = [-1,-1,0,1,1,1,0,-1] # 행
 dc = [0,-1,-1,-1,0,1,1,1] # 열
 
-def 물고기위치(k,물고기):
+def 물고기위치(k,물고기,board_cus):
     for k in range(1,17):
         for i in range(4):
             for j in range(4):
@@ -80,18 +80,18 @@ def 물고기회전(board_cus,cnt):
             # 1. 물고기 이동
             # 8개 방향 돌려서 0,0이 아니고 숫자 증가하는데
             물고기 = []
-            물고기, 상r, 상c = 물고기위치(1,물고기)
+            물고기, 상r, 상c = 물고기위치(1,물고기,board_cus)
 
         if board_cus[물고기[i][0]][물고기[i][1]][0] != "상":
             fish_move(물고기[i][0], 물고기[i][1], board_cus[물고기[i][0]][물고기[i][1]][1])
             if i == 15-cnt:
                 break
             물고기=[]
-            물고기, 상r, 상c = 물고기위치(1,물고기)
+            물고기, 상r, 상c = 물고기위치(1,물고기,board_cus)
 
     return board_cus,상r, 상c
 
-def main(board_cus):
+def main(board_cus,상r, 상c):
     global res
     global m
     global c
@@ -103,6 +103,8 @@ def main(board_cus):
     cnt = 1
     dir = board_cus[상r][상c][1]
     tmp_board = deepcopy(board_cus)
+    임시상r = deepcopy(상r)
+    임시상c = deepcopy(상c)
     while True:
         # 상어가 갈 수 있는 경우의 수 -> dfs
         nr = 상r + dr[dir - 1]*cnt
@@ -112,18 +114,17 @@ def main(board_cus):
                 m = res
             res = 0
             return
-
         print("===============================")
         if 0 <= nr < 4 and 0 <= nc < 4:
             res += board_cus[nr][nc][0]
-            # tmp = board_cus[상r][상c]
-            # tmp2 = board_cus[nr][nc]
+
             board_cus[상r][상c][1] = board_cus[nr][nc][1]
             board_cus[상r][상c], board_cus[nr][nc] = [0, 0], board_cus[상r][상c]
             cnt += 1
-            main(board_cus)
+            main(board_cus,상r, 상c)
 
             board_cus = tmp_board
+            상r, 상c = 임시상r, 임시상c
 
 
     
@@ -142,6 +143,6 @@ res = 0
 
 m = 0
 c = 0
-main(board_cus)
+main(board_cus, 0,0)
 print(m)
 
