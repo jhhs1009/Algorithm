@@ -78,8 +78,6 @@ def move(filed,ball):
                 new_ball.append([nr,nc])
             if vis[nr][nc] == 2:
                 q.append([nr,nc])
-    # for i in range(n):
-    #     print(filed[i])
     # 여기 위에 까지가 이제 이동 끝
 
     # 2. 2개 이상의 파이어볼 판단
