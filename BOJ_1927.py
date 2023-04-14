@@ -12,6 +12,8 @@
 
 import heapq
 
+import sys
+
 N = int(input())
 
 x = [list(map(int,input().split())) for _ in range(N)]
