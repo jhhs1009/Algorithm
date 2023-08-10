@@ -17,8 +17,11 @@
     > 5-3) PCI Info 받아오는 함수 추가
 6. 수정 사항 :
     > 6-1) GPIO Init 추가
-    > >     - Add GPIO Init
+    > >     - Add GPIO Init 
     > 6-2) Hardwired Revison 추가
     > >     - Add Hardwired Revison
     > 6-3) Implement getPciSwitchInfo 추가
     > >     - Implement getPciSwitchInfo
+7. release date
+    > 2023.08.10
+8. 담당자 : 박지현
