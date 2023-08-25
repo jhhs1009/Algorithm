@@ -4,23 +4,17 @@
 ## Project : RYZEN
 
 ### [2023-08-10]
-1. Type : BUG..
-2. 수정자 : 
-3. description :
-    > 2-1) CSD 참고
+1. Type : EXPENSION
+2. Responsible : parkjh
+3. description
+    > 3-1) Added Ctrl Register I/O and Get SHST info
 
-       - Add GPIO Init
-       - dd
-       - dd
-       - csd
+       - GET_SHST_INIT() Add
    
-    > 6-2) Hardwired Revison 추가
+    > 3-2) Added PEX APIs for Diag. Bd
     
-        - Add Hardwired Revison
+       - Added PEX APIs for Diag. Bd
    
-    > 6-3) Implement getPciSwitchInfo 추가
-    
-        - Implement getPciSwitchInfo 
-4. change history
+4. change history : Function Added
 5. remark : IEOS
-6. customer : 정의권 
+6. customer : 
